@@ -1,9 +1,9 @@
 import * as echarts from 'echarts'
 import { FC, useEffect, useRef } from 'react'
 
-interface LineBasicChartProps { }
+interface MixedBasicLineBarChartProps { }
 
-const LineBasicChart: FC<LineBasicChartProps> = () => {
+const MixedBasicLineBarChart: FC<MixedBasicLineBarChartProps> = () => {
   const chartRef = useRef(null)
 
   useEffect(() => {
@@ -19,7 +19,19 @@ const LineBasicChart: FC<LineBasicChartProps> = () => {
       series: [
         {
           type: 'line',
+          label: {
+            show: true,
+            position: 'top',
+          },
           data: [150, 230, 224, 218, 135, 147, 260]
+        },
+        {
+          type: 'bar',
+          label: {
+            show: true,
+            position: 'top',
+          },
+          data: [14, 68, 26, 40, 64, 14, 19]
         }
       ]
     })
@@ -31,4 +43,4 @@ const LineBasicChart: FC<LineBasicChartProps> = () => {
   )
 }
 
-export default LineBasicChart
+export default MixedBasicLineBarChart

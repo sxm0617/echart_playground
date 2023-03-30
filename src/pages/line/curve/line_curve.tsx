@@ -1,14 +1,14 @@
-import * as echarts from 'echarts'
+import * as echarts from 'echarts/core'
 import { FC, useEffect, useRef } from 'react'
 
-interface LineBasicChartProps { }
+interface LineCurveChartProps { }
 
-const LineBasicChart: FC<LineBasicChartProps> = () => {
+const LineCurveChart: FC<LineCurveChartProps> = () => {
   const chartRef = useRef(null)
 
   useEffect(() => {
-    const myChart = echarts.init(chartRef.current)
-    myChart.setOption({
+    const chart = echarts.init(chartRef.current)
+    chart.setOption({
       xAxis: {
         type: 'category',
         data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
@@ -18,12 +18,12 @@ const LineBasicChart: FC<LineBasicChartProps> = () => {
       },
       series: [
         {
+          data: [150, 230, 224, 218, 135, 147, 260],
           type: 'line',
-          data: [150, 230, 224, 218, 135, 147, 260]
+          smooth: true,
         }
       ]
     })
-
   }, [])
 
   return (
@@ -31,4 +31,4 @@ const LineBasicChart: FC<LineBasicChartProps> = () => {
   )
 }
 
-export default LineBasicChart
+export default LineCurveChart
